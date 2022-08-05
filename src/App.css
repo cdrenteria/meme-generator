@@ -1,4 +1,9 @@
 /*Form*/
+.main-content {
+  display: flex;
+  flex-direction: column;
+
+}
 .new-img-btn {
   height: 4vh;
   background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
@@ -8,6 +13,8 @@
   font-size: 16px;
   color: white;
   border: none;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .meme-inputs > input {
