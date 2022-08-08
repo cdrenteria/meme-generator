@@ -1,8 +1,11 @@
 /*Form*/
+.meme-img {
+  width: 75%;
+  margin: 2vh auto;
+}
 .main-content {
   display: flex;
   flex-direction: column;
-
 }
 .new-img-btn {
   height: 4vh;
