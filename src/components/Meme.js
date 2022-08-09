@@ -1,18 +1,28 @@
 import React from "react"
-import Memes from "./meme-data"
+
 
 export default function Meme(){
+ 
     const [meme, setMeme] = React.useState({
         topText: "",
         bottomText: "",
         randomImage: ""
     })
 
-    const [allMemeImages, setAllMemeImages] = React.useState(Memes)
+    
+    const [allMemeImages, setAllMemeImages] = React.useState([])
+
+    React.useEffect(() =>{
+        fetch("https://api.imgflip.com/get_memes")
+        .then(res=> res.json())
+        .then(apiData => {setAllMemeImages(apiData.data.memes)
+        getMemeImage()})
+    }
+    , [])
+
 
     function getMemeImage() {
-        let memesArray = allMemeImages.data.memes;
-        let newMeme = memesArray[Math.floor(Math.random() * 100)];
+        let newMeme = allMemeImages[Math.floor(Math.random() * 100)];
         setMeme(prevMeme => {
             return{
                 ...prevMeme, 
@@ -30,7 +40,6 @@ export default function Meme(){
             }
         })
     }
-    console.log(meme)
     return(
         <div className="main-content">
             <form className="meme-form">
